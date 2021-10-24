@@ -2,6 +2,8 @@ package com.neppplus.colosseum_20211024.utils
 
 import android.provider.ContactsContract
 import okhttp3.FormBody
+import okhttp3.OkHttp
+import okhttp3.OkHttpClient
 import okhttp3.Request
 
 class ServerUtil {
@@ -32,7 +34,12 @@ class ServerUtil {
                 .post(formData)
                 .build()
 
+//            4. 만들어진 request를 실제로 호출 해야함.
+//            서버에 요청을 실제로 하자. - 클라이언트의 역할. -> 앱이 클라이언트로써 동작하게 하자.
 
+            val client = OkHttpClient()
+
+            client.newCall(request)
 
         }
 
