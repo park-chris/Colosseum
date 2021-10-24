@@ -3,6 +3,7 @@ package com.neppplus.colosseum_20211024.utils
 import android.provider.ContactsContract
 import android.util.Log
 import okhttp3.*
+import org.json.JSONObject
 import java.io.IOException
 
 class ServerUtil {
@@ -55,7 +56,16 @@ class ServerUtil {
 //                    응답에 포함된 데이터들 중 => 본문 (body) 을 보자.
 
                     val bodyString = response.body!!.string()
-                    Log.d("서버응답본문", bodyString)
+
+//                    본문을 그냥 받은 String 그대로 찍으면 -> 한글이 깨져서 보임.
+//                    해결책 : String -> JSONObject로 변환 -> String으로 재변환해보면, 한글이 제대로 보임.
+
+                    val jsonObg = JSONObject(bodyString)
+
+                    Log.d("서버응답본문", jsonObg.toString())
+
+
+
 
                 }
 
