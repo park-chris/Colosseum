@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             Log.d("입력비밀번호", inputPw)
 
 
+
 //            서버의 로그인 기능에 전달.
             ServerUtil.postRequestLogin(inputEmail, inputPw)
 
