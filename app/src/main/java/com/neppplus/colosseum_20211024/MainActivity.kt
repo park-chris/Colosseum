@@ -3,14 +3,16 @@ package com.neppplus.colosseum_20211024
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.neppplus.colosseum_20211024.databinding.ActivityMainBinding
 import com.neppplus.colosseum_20211024.utils.ServerUtil
+import org.json.JSONObject
 import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +30,34 @@ class MainActivity : AppCompatActivity() {
             Log.d("입력비밀번호", inputPw)
 
 
-
 //            서버의 로그인 기능에 전달.
-            ServerUtil.postRequestLogin(inputEmail, inputPw)
+            ServerUtil.postRequestLogin(
+                inputEmail,
+                inputPw,
+                object : ServerUtil.JsonResponseHandler {
+                    override fun onResponse(jsonObj: JSONObject) {
+
+//                        화면단에서 jsonObj 분석 -> 상황에 맞는 UI 처리.
+                        val code = jsonObj.getInt("code")
+
+//                        로그인 성공 시 -> 성공 토스트
+//                        실패시 -> 왜 실패했는지 서버가 알려주는대로 토스트
+
+                        if (code == 200) {
+
+//                            백그라운드단에서 화면단을 건들면 앱이 터져서 runOnUiThread 사용
+                            runOnUiThread {
+                                Toast.makeText(this@MainActivity, "로그인 성공", Toast.LENGTH_SHORT).show()
+                            }
+
+
+                        }
+                        else {
+
+                        }
+
+                    }
+                })
 
         }
 
