@@ -53,7 +53,7 @@ class MainActivity : BaseActivity() {
 
 //                            백그라운드단에서 화면단을 건들면 앱이 터져서 runOnUiThread 사용
                             runOnUiThread {
-                                Toast.makeText(this@MainActivity, "로그인 성공", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(mContext, "로그인 성공", Toast.LENGTH_SHORT).show()
                             }
 
 
@@ -64,7 +64,7 @@ class MainActivity : BaseActivity() {
                             val message = jsonObj.getString("message")
 
                             runOnUiThread {
-                                Toast.makeText(this@MainActivity, message, Toast.LENGTH_SHORT).show()
+                                Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
 
                             }
 
