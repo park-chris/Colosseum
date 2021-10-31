@@ -2,6 +2,7 @@ package com.neppplus.colosseum_20211024.utils
 
 import android.content.Context
 import android.provider.ContactsContract
+import android.util.Base64
 import android.util.Log
 import okhttp3.*
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
@@ -203,6 +204,8 @@ class ServerUtil {
             })
 
         }
+
+
 
     }
 
