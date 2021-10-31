@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.neppplus.colosseum_20211024.databinding.ActivityLoginBinding
+import com.neppplus.colosseum_20211024.utils.ContextUtil
 import com.neppplus.colosseum_20211024.utils.ServerUtil
 import org.json.JSONObject
 
@@ -58,6 +59,8 @@ class LoginActivity : BaseActivity() {
                             val token = dataObj.getString("token")
 
 //                            sharedPreferences 활용하여 저장해두자. => 필요할때 꺼내쓰도록.
+
+                            ContextUtil.setToken(mContext, token)
 
 //                            백그라운드단에서 화면단을 건들면 앱이 터져서 runOnUiThread 사용
                             runOnUiThread {
