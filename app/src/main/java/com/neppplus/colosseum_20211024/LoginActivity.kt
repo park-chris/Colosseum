@@ -24,6 +24,17 @@ class LoginActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        binding.autoLoginCheckBox.setOnCheckedChangeListener { compoundButton, isChecked ->
+
+//          isChecked : 클릭되어서 변경된 최종 상태값을 알려준다.
+//            ContextUtil에 변경된 값 저장.
+
+            ContextUtil.setAutoLogin(mContext, isChecked)
+
+
+        }
+
+
         binding.loginBtn.setOnClickListener {
 
 //            입력한 이메일/비번을 데이터바인딩으로 가져오기.
@@ -100,6 +111,9 @@ class LoginActivity : BaseActivity() {
     }
 
     override fun setValues() {
+
+        binding.autoLoginCheckBox.isChecked = ContextUtil.getAutoLogin(mContext)
+
     }
 
 

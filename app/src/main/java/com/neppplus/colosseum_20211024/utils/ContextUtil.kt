@@ -29,6 +29,7 @@ class ContextUtil {
             return pref.getBoolean(AUTO_LOGIN, false)
         }
 
+
         // setter - 토큰 저장 기능. SAVE
         fun setToken( context: Context, token: String ) {
 
