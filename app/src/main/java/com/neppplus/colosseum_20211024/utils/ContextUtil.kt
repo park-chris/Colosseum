@@ -18,12 +18,19 @@ class ContextUtil {
 
 //            불러낸 메모장에 token 값 기록.
             pref.edit().putString(TOKEN, token).apply()
-
-
         }
 
 
         // getter - 토큰 조회 기능. LOAD
+
+        fun getToken(context: Context ) : String {
+//            메모장을 불러내자.
+            val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+
+//            불러낸 메모장에서 token 값 찾아서 리턴. (결과로 지정)
+            return pref.getString(TOKEN, "")!!
+
+        }
 
     }
 
