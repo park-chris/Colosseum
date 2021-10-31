@@ -114,6 +114,7 @@ class LoginActivity : BaseActivity() {
 
         binding.autoLoginCheckBox.isChecked = ContextUtil.getAutoLogin(mContext)
 
+
     }
 
 
