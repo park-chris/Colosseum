@@ -21,6 +21,15 @@ class SignUpActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        binding.checkEmailBtn.setOnClickListener {
+
+            val inputEmail = binding.emailEdt.text.toString()
+
+            ServerUtil.getRequestDuplCheck("EMAIL", inputEmail, null)
+
+
+        }
+
         binding.okBtn.setOnClickListener {
 
             val inputEmail = binding.emailEdt.text.toString()
