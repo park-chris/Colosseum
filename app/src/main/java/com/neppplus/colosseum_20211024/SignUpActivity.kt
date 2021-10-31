@@ -75,6 +75,10 @@ class SignUpActivity : BaseActivity() {
 
 
 //            입력값들이 괜찮은지 먼저 검사. => 전부 통과해야 회원가입 실행.
+
+//            도전과제. 구글링 필요. => 입력한 이메일이, 이메일 양식이 맞는지? aaa@bbb.com 등.
+//             정규 표현식 활용. -> 이메일 양식 검증 정규표현식
+            
             if (!isEmailOk) {
                 Toast.makeText(mContext, "이메일 확인을 다시 해주세요.", Toast.LENGTH_SHORT).show()
 
@@ -88,6 +92,7 @@ class SignUpActivity : BaseActivity() {
                 Toast.makeText(mContext, "비밀번호는 8글자 이상으로 해주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            
 
 //            입력 데이터를 => 서버의 회원가입 기능에 요청. => ServerUtil 함수 활용. => 함수가 아직 없으니 추가로 만들자
             ServerUtil.putRequestSignUp(inputEmail, inputPw, inputNickname, object : ServerUtil.JsonResponseHandler {
