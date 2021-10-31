@@ -52,9 +52,13 @@ class MainActivity : BaseActivity() {
 
                         if (code == 200) {
 
+                            val dataObj = jsonObj.getJSONObject("data")
+                            val userObj = dataObj.getJSONObject("user")
+                            val nickname = userObj.getString("nick_name")
+
 //                            백그라운드단에서 화면단을 건들면 앱이 터져서 runOnUiThread 사용
                             runOnUiThread {
-                                Toast.makeText(mContext, "로그인 성공", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(mContext, "${nickname}님, 환영합니다!!", Toast.LENGTH_SHORT).show()
                             }
 
 
