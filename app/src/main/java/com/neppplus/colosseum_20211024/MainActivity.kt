@@ -1,6 +1,7 @@
 package com.neppplus.colosseum_20211024
 
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import com.neppplus.colosseum_20211024.adapters.TopicAdapter
 import com.neppplus.colosseum_20211024.databinding.ActivityMainBinding
 import com.neppplus.colosseum_20211024.datas.TopicData
+import com.neppplus.colosseum_20211024.utils.ContextUtil
 import com.neppplus.colosseum_20211024.utils.ServerUtil
 import org.json.JSONObject
 
@@ -40,6 +42,14 @@ class MainActivity : BaseActivity() {
             alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialogInterface, i ->
 
 //                확인 눌리면 할 일
+//                로그아웃 : 저장된 토큰값을 파기
+
+                ContextUtil.setToken(mContext, "")
+                val myIntent = Intent(mContext, SplashActivity::class.java)
+
+                startActivity(myIntent)
+
+                finish()
 
             })
             alert.setNegativeButton("취소", null)
