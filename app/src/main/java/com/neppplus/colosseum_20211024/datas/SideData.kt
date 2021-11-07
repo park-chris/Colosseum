@@ -14,9 +14,7 @@ class SideData {
             val sideData = SideData()
 
             sideData.id = jsonObj.getInt("id")
-
             sideData.title = jsonObj.getString("title")
-
             sideData.voteCount = jsonObj.getInt("vote_count")
 
             return sideData
