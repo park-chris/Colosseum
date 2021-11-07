@@ -6,6 +6,8 @@ import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.neppplus.colosseum_20211024.databinding.ActivityViewTopicDetailBinding
 import com.neppplus.colosseum_20211024.datas.TopicData
+import com.neppplus.colosseum_20211024.utils.ServerUtil
+import org.json.JSONObject
 
 class ViewTopicDetailActivity : BaseActivity() {
 
@@ -26,13 +28,23 @@ class ViewTopicDetailActivity : BaseActivity() {
 
     override fun setValues() {
 
+
+
         mTopicData = intent.getSerializableExtra("topic") as TopicData
 
         binding.topicTitleTxt.text = mTopicData.title
 
         Glide.with(mContext).load(mTopicData.imageURL).into(binding.topicImg)
 
+        getTopicDatailFromServer()
     }
 
+    fun getTopicDatailFromServer() {
+        ServerUtil.getRequestTopicDetail(mContext, mTopicData.id, "NEW", object : ServerUtil.JsonResponseHandler {
+            override fun onResponse(jsonObj: JSONObject) {
+            }
+
+        })
+    }
 
 }
