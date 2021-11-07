@@ -10,7 +10,7 @@ import com.neppplus.colosseum_20211024.datas.ReplyData
 import com.neppplus.colosseum_20211024.datas.TopicData
 import com.neppplus.colosseum_20211024.utils.ServerUtil
 import org.json.JSONObject
-import java.util.ArrayList
+import kotlin.collections.ArrayList
 
 class ViewTopicDetailActivity : BaseActivity() {
 
@@ -71,11 +71,14 @@ class ViewTopicDetailActivity : BaseActivity() {
 
 //                    댓글목록으로 추가
                     mReplyList.add(replyData)
-
                 }
 
 //                리스트뷰의  목록에 변경 => 어댑터 새로고침
-                mReplyAdapter.notifyDataSetChanged()
+
+                runOnUiThread {
+                    mReplyAdapter.notifyDataSetChanged()
+
+                }
 
             }
 
