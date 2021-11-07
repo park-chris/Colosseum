@@ -45,11 +45,11 @@ class SignUpActivity : BaseActivity() {
                     runOnUiThread {
                         if (code == 200) {
                             binding.nicknameCheckResultTxt.text = "사용해도 좋은 닉네임입니다."
-                            isEmailOk = true
+                            isNicknameOk = true
                         }
                         else {
                             binding.nicknameCheckResultTxt.text = "다른 닉네임으로 사용해주세요."
-                            isEmailOk = false
+                            isNicknameOk = false
                         }
                     }
 
