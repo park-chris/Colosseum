@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
+import com.neppplus.colosseum_20211024.adapters.TopicAdapter
 import com.neppplus.colosseum_20211024.databinding.ActivityMainBinding
 import com.neppplus.colosseum_20211024.datas.TopicData
 import com.neppplus.colosseum_20211024.utils.ServerUtil
@@ -13,6 +14,8 @@ import org.json.JSONObject
 class MainActivity : BaseActivity() {
 
     lateinit var binding : ActivityMainBinding
+
+    lateinit var  mTopicAdapter : TopicAdapter
 
     val mTopicList = ArrayList<TopicData>()
 
@@ -34,7 +37,8 @@ class MainActivity : BaseActivity() {
 
         getTopicListFromServer()
 
-
+        mTopicAdapter = TopicAdapter(mContext, R.layout.topic_list_item, mTopicList)
+        binding.topicListView.adapter = mTopicAdapter
     }
     fun getTopicListFromServer() {
 
