@@ -20,6 +20,8 @@ class ViewTopicDetailActivity : BaseActivity() {
 
     val mReplyList = ArrayList<ReplyData>()
 
+    lateinit var mReplyAdapter: ReplyAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_view_topic_detail)
@@ -33,8 +35,6 @@ class ViewTopicDetailActivity : BaseActivity() {
 
     override fun setValues() {
 
-
-
         mTopicData = intent.getSerializableExtra("topic") as TopicData
 
         binding.topicTitleTxt.text = mTopicData.title
@@ -42,6 +42,11 @@ class ViewTopicDetailActivity : BaseActivity() {
         Glide.with(mContext).load(mTopicData.imageURL).into(binding.topicImg)
 
         getTopicDatailFromServer()
+
+        mReplyAdapter = ReplyAdapter(mContext, R.layout.reply_list_item, mReplyList)
+
+        binding.replyListView.adapter = mReplyAdapter
+
     }
 
     fun getTopicDatailFromServer() {
@@ -70,6 +75,7 @@ class ViewTopicDetailActivity : BaseActivity() {
                 }
 
 //                리스트뷰의  목록에 변경 => 어댑터 새로고침
+                mReplyAdapter.notifyDataSetChanged()
 
             }
 
