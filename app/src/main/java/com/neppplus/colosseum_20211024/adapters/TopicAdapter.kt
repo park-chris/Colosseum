@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.neppplus.colosseum_20211024.R
 import com.neppplus.colosseum_20211024.datas.TopicData
 
@@ -33,6 +34,7 @@ class TopicAdapter(
 
         topicTitleTxt.text = topicData.title
 
+        Glide.with(mContext).load(topicData.imageURL).into(topicImg)
 
         return row
     }
