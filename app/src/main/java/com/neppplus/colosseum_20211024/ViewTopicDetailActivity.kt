@@ -10,7 +10,6 @@ import com.neppplus.colosseum_20211024.datas.ReplyData
 import com.neppplus.colosseum_20211024.datas.TopicData
 import com.neppplus.colosseum_20211024.utils.ServerUtil
 import org.json.JSONObject
-import kotlin.collections.ArrayList
 
 class ViewTopicDetailActivity : BaseActivity() {
 
