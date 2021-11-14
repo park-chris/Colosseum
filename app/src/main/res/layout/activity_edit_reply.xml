@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="20dp"
@@ -16,11 +16,6 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="내 선택 진영 : " />
 
             <TextView
                 android:id="@+id/selectedSideTitleTxt"
@@ -36,15 +31,20 @@
             android:id="@+id/replyEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minLines="3"
             android:gravity="top"
-            android:hint="의견을 입력하세요." />
+            android:hint="의견을 입력하세요."
+            android:minLines="3" />
 
         <Button
             android:id="@+id/writeReplyBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="의견 등록" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내 선택 진영 : " />
 
     </LinearLayout>
 
