@@ -19,7 +19,7 @@
         android:layout_marginStart="10dp"
         android:padding="8dp"
         android:layout_gravity="center_vertical"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@drawable/img_1" />
 
     <ImageView
         android:id="@+id/profileBtn"
