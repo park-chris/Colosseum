@@ -21,4 +21,13 @@
         android:layout_gravity="center_vertical"
         android:src="@mipmap/ic_launcher" />
 
+    <ImageView
+        android:id="@+id/profileBtn"
+        android:layout_gravity="end|center_vertical"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/img" />
+
 </FrameLayout>
