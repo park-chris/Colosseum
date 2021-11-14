@@ -445,6 +445,48 @@ class ServerUtil {
 }
 
 
+
+//        토론 댓글에 대댓글 등록
+
+        fun postRequestWriteReReply(context: Context, content: String, parentReplyId: Int, handler: JsonResponseHandler?) {
+
+            val urlString = "${BASE_URL}/topic_reply"
+
+            val formData = FormBody.Builder()
+//                    name: "API서버 이름", 현재 function의 변수
+                .add("content", content)
+                .add("parent_reply_id", parentReplyId.toString())
+                .build()
+
+            val request = Request.Builder()
+                .url(urlString)
+                .post(formData)
+                .header("X-Http-Token", ContextUtil.getToken(context))
+                .build()
+
+            val client = OkHttpClient()
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+
+
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+
+                    val bodyString = response.body!!.string()
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버응답본문", jsonObj.toString())
+                    handler?.onResponse(jsonObj)
+
+                }
+
+            })
+
+        }
+
+
     }
 
 }
