@@ -30,6 +30,15 @@ class ViewTopicDetailActivity : BaseActivity() {
         setValues()
     }
 
+    override fun onResume() {
+        super.onResume()
+
+//        댓글 목록을 화면이 보여질때마다 다시 새로고침.
+        getTopicDatailFromServer()
+
+    }
+
+
     override fun setupEvents() {
 
         binding.addReplyBtn.setOnClickListener {
@@ -103,7 +112,6 @@ class ViewTopicDetailActivity : BaseActivity() {
         getTopicDatailFromServer()
 
         mReplyAdapter = ReplyAdapter(mContext, R.layout.reply_list_item, mReplyList)
-
         binding.replyListView.adapter = mReplyAdapter
 
     }
