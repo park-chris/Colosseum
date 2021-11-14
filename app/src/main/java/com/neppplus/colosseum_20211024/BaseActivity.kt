@@ -31,8 +31,6 @@ abstract class BaseActivity : AppCompatActivity() {
         val toolbar = defActionBar.customView.parent as Toolbar
         toolbar.setContentInsetsAbsolute(0,0)
 
-
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
