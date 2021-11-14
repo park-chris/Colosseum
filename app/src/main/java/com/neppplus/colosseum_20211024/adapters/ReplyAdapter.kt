@@ -61,6 +61,22 @@ class ReplyAdapter(
 
         }
 
+        dislikeCountTxt.setOnClickListener {
+
+            ServerUtil.postRequestReplyLikeOrDislike(mContext, data.id, false, object : ServerUtil.JsonResponseHandler{
+                override fun onResponse(jsonObj: JSONObject) {
+
+
+
+
+
+                }
+
+
+            })
+
+        }
+
 
         return row
     }
